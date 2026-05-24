@@ -1,5 +1,5 @@
 {
-  "buildCommand": "env | grep -E '^(DATABASE|NEXTAUTH|CALENDSO|NEXT_PUBLIC|SKIP_)' > .env && npx turbo run build --filter=@calcom/web",
+  "buildCommand": "echo 'SKIP_DB_MIGRATIONS=1' > .env && env | grep -E '^(DATABASE|NEXTAUTH|CALENDSO|NEXT_PUBLIC)' >> .env && npx turbo run build --filter=@calcom/web",
   "outputDirectory": "apps/web/.next",
   "installCommand": "yarn install",
   "framework": "nextjs"
