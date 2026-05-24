@@ -1,5 +1,5 @@
 {
-  "buildCommand": "yarn turbo run build --filter=@calcom/web",
+  "buildCommand": "yarn build",
   "outputDirectory": "apps/web/.next",
   "installCommand": "yarn install",
   "framework": "nextjs"
