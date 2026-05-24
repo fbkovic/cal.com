@@ -8,6 +8,12 @@ import { excludePendingPaymentsExtension } from "./extensions/exclude-pending-pa
 import { PrismaClient, type Prisma } from "./generated/prisma/client";
 
 const connectionString = process.env.DATABASE_URL || "";
+try {
+  const u = new URL(connectionString);
+  console.log(`[prisma] DATABASE_URL parsed: host=${u.hostname} port=${u.port} db=${u.pathname} user=${u.username} pwLen=${u.password.length} hasUrl=${!!connectionString} urlLen=${connectionString.length}`);
+} catch (e) {
+  console.log(`[prisma] DATABASE_URL invalid or missing. hasUrl=${!!connectionString} urlLen=${connectionString.length} firstChars=${connectionString.slice(0, 20)} err=${(e as Error).message}`);
+}
 const pool =
   process.env.USE_POOL === "true" || process.env.USE_POOL === "1"
     ? new Pool({
