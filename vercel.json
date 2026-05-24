@@ -1,5 +1,5 @@
 {
-  "buildCommand": "echo \"DATABASE_URL=$DATABASE_URL\" > .env && echo \"DATABASE_DIRECT_URL=$DATABASE_DIRECT_URL\" >> .env && echo \"NEXTAUTH_SECRET=$NEXTAUTH_SECRET\" >> .env && echo \"CALENDSO_ENCRYPTION_KEY=$CALENDSO_ENCRYPTION_KEY\" >> .env && echo \"NEXTAUTH_URL=$NEXTAUTH_URL\" >> .env && echo \"NEXT_PUBLIC_WEBAPP_URL=$NEXT_PUBLIC_WEBAPP_URL\" >> .env && npx turbo run build --filter=@calcom/web",
+  "buildCommand": "env | grep -E '^(DATABASE|NEXTAUTH|CALENDSO|NEXT_PUBLIC)' > .env && npx turbo run build --filter=@calcom/web",
   "outputDirectory": "apps/web/.next",
   "installCommand": "yarn install",
   "framework": "nextjs"
