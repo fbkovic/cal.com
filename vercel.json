@@ -1,5 +1,5 @@
 {
-  "buildCommand": "echo 'SKIP_DB_MIGRATIONS=1' > .env && env | grep -E '^(DATABASE|NEXTAUTH|CALENDSO|NEXT_PUBLIC|VAPID|CRON|GOOGLE|MS_GRAPH|STRIPE|SENDGRID|EMAIL|RESEND|SMTP|INSIGHTS|SAML|RESERVED|ALLOWED|ORGANIZATIONS|PGSSLMODE)' >> .env && npx turbo run build --filter=@calcom/web",
+  "buildCommand": "bash scripts/vercel-build.sh",
   "outputDirectory": "apps/web/.next",
   "installCommand": "yarn install",
   "framework": "nextjs"
